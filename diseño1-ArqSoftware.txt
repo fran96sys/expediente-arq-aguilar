@@ -1,0 +1,67 @@
+1. Actores
+
+- Administrador: administra usuarios, áreas y configuraciones del sistema.
+- Recepción/Secretaría: registra documentos y genera hojas de ruta.
+- Responsable de Área: recibe, deriva y atiende documentos.
+- Ejecutivo Municipal: consulta y supervisa el estado de la correspondencia.
+
+2. Módulos
+
+2.1 Registro de Correspondencia
+Registrar documentos recibidos y enviados.
+
+2.2 Gestión de Hojas de Ruta
+Crear y asignar hojas de ruta a las áreas correspondientes.
+
+2.3 Derivación y Seguimiento
+Controlar el recorrido y estado de los documentos.
+
+2.4 Gestión de Usuarios y Áreas
+Administrar usuarios, cargos y unidades organizacionales.
+
+2.5 Reportes
+Generar reportes sobre la correspondencia gestionada.
+
+3. Identificación de clases
+
+Sustantivos
+- Usuario
+- Documento
+- Hoja de Ruta
+- Área
+- Derivación
+- Reporte
+- Estado
+
+Verbos
+- Registrar documento
+- Crear hoja de ruta
+- Derivar documento
+- Recibir documento
+- Actualizar estado
+- Consultar documento
+- Generar reporte
+- Administrar usuarios
+
+Filtro de clases
+Después de analizar los sustantivos, se consideran como principales clases del sistema:
+
+- Usuario
+- Documento
+- HojaRuta
+- Área
+- Derivación
+- Reporte
+
+El Estado se considera inicialmente como un atributo del Documento o de la Hoja de Ruta, según el diseño final.
+
+4. Relaciones principales
+
+- Un Usuario registra un Documento.
+- Un Documento genera una Hoja de Ruta.
+- Una Hoja de Ruta puede tener varias Derivaciones.
+- Una Derivación envía el documento a un Área.
+- Un Usuario pertenece a un Área.
+- El sistema genera Reportes a partir de la información registrada.
+
+
