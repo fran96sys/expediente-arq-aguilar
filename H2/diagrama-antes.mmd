@@ -1,0 +1,63 @@
+classDiagram
+    class GestorCorrespondencia {
+        -DocumentoRepository documentoRepository
+        -DerivacionRepository derivacionRepository
+        -Notificador notificador
+        +registrarDocumento()
+        +crearHojaRuta()
+        +derivarDocumento()
+        +actualizarEstado()
+        +generarReporte()
+        +notificarDerivacion()
+        +procesarDocumento(tipo)
+    }
+
+    class Usuario {
+        +Long id
+        +String nombre
+        +String cargo
+    }
+
+    class Unidad {
+        +Long id
+        +String nombre
+    }
+
+    class Documento {
+        +Long id
+        +String codigo
+        +String asunto
+        +String estado
+    }
+
+    class HojaRuta {
+        +Long id
+        +String codigo
+        +String estado
+    }
+
+    class Derivacion {
+        +Long id
+        +String observacion
+        +String estado
+    }
+
+    class Reporte {
+        +Long id
+        +String tipo
+    }
+
+    class DocumentoRepository
+    class DerivacionRepository
+    class Notificador
+
+    GestorCorrespondencia --> DocumentoRepository
+    GestorCorrespondencia --> DerivacionRepository
+    GestorCorrespondencia --> Notificador
+
+    Usuario --> Unidad
+    Usuario --> Documento : registra
+    Documento --> HojaRuta : genera
+    HojaRuta --> Derivacion : contiene
+    Derivacion --> Unidad : dirige
+    GestorCorrespondencia --> Reporte : genera

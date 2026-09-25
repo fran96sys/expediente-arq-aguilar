@@ -1,0 +1,58 @@
+classDiagram
+    class DocumentoService {
+        +registrarDocumento()
+        +consultarDocumento()
+    }
+
+    class HojaRutaService {
+        +crearHojaRuta()
+        +consultarHojaRuta()
+    }
+
+    class DerivacionService {
+        +derivarDocumento()
+        +actualizarEstado()
+    }
+
+    class ReporteService {
+        +generarReporte()
+    }
+
+    class DocumentoRepository {
+        <<interface>>
+        +guardar()
+        +buscarPorId()
+    }
+
+    class DerivacionRepository {
+        <<interface>>
+        +guardar()
+        +listarPorDocumento()
+    }
+
+    class Notificador {
+        <<interface>>
+        +notificar()
+    }
+
+    class TipoDocumentoProcessor {
+        <<interface>>
+        +procesar()
+    }
+
+    class DocumentoRepositoryImpl
+    class DerivacionRepositoryImpl
+    class NotificadorImpl
+    class DocumentoEntranteProcessor
+    class DocumentoSalienteProcessor
+
+    DocumentoService --> DocumentoRepository
+    DerivacionService --> DerivacionRepository
+    DerivacionService --> Notificador
+    DocumentoService --> TipoDocumentoProcessor
+
+    DocumentoRepository <|.. DocumentoRepositoryImpl
+    DerivacionRepository <|.. DerivacionRepositoryImpl
+    Notificador <|.. NotificadorImpl
+    TipoDocumentoProcessor <|.. DocumentoEntranteProcessor
+    TipoDocumentoProcessor <|.. DocumentoSalienteProcessor
